@@ -1,0 +1,57 @@
+/*Table border*/
+table,th,td{
+    border:1px solid black;
+    font-family: Sans-Serif;
+}
+.text-left{
+    text-align: left;
+}
+.text-right{
+    text-align: right;
+}
+.text-center{
+    text-align: center;
+}
+.bold{
+    font-weight: "bold";
+    font-family: Sans-Serif;
+}
+/*the alternating colors*/
+.grey{
+    background-color: #7393B3;
+}
+.light{
+    background-color: #F0FFFF;
+}
+/*due assignment counter*/
+#due{
+    border-style: solid;
+    background-color: white;
+    width:500px;
+    align-items: center;
+    margin:auto;
+    font-family: serif;
+    text-align: center;
+    font-size: 5ex;
+}
+/*bg*/
+body{
+    background-color: peachpuff;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*the four buttons for the table are in a container*/
+button{
+    display: inline-block;
+    margin: 0 10px;
+    border-radius: 10%;
+    width: 80px;
+    height:50px;
+}
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+}

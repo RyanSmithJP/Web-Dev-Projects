@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./assignment-03.css">
+    </head>
+    <body onload="countUnsubmitted(),getAverage()">
+        <script src="./assignment-03.js"></script>
+        <h1>Student grades table</h1>
+
+        <!--Originally made table. Used this as the basis for my javascript functions as I needed ten students by default-->
+        <table style="width:100%" id="myTable">
+            <!--Columns-->
+            <tr style="background-color:darkgray">
+              <th>Name</th>
+              <th>ID</th>
+              <th>Assignment 1</th>
+              <th>Assignment 2</th>
+              <th>Assignment 3</th>
+              <th>Assignment 4</th>
+              <th>Assignment 5</th>
+              <!--Change grade display of final results by clicking on column-->
+              <th onclick="changeFormat()">Average [%]</th>
+            </tr>
+            <!--alternating colours-->
+            <tr class = "grey">
+              <td>Alfred Ryan</td>
+              <td>23000001</td>
+              <!--display numbers to right. after entering text run functions to check missing assignments, etc.-->
+              <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+              <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+              <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+              <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+              <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+              <td class="text-right" onclick="changeFormat()">-</td>
+            </tr>
+            <tr class = "light">
+                <td>John Wayne</td>
+                <td>23000002</td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onclick="changeFormat()">-</td>
+            </tr>
+            <tr class = "grey">
+                <td>Mary Smith</td>
+                <td>23000003</td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onclick="changeFormat()">-</td>
+            </tr>
+            <tr class = "light">
+                <td>Elaine O'Connor</td>
+                <td>23000004</td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onclick="changeFormat()">-</td>
+            </tr>
+            <tr class = "grey">
+                <td>David McMahon</td>
+                <td>23000005</td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onclick="changeFormat()">-</td>
+            </tr>
+            <tr class = "light">
+                <td>Sebastian Wayne</td>
+                <td>23000006</td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onclick="changeFormat()">-</td>
+            </tr>
+            <tr class = "grey">
+                <td>Suzy Johnson</td>
+                <td>23000007</td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onclick="changeFormat()">-</td>
+            </tr>
+            <tr class = "light">
+                <td>Emily Byrne</td>
+                <td>23000008</td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onclick="changeFormat()">-</td>
+            </tr>
+            <tr class = "grey">
+                <td>Adam Mahon</td>
+                <td>23000009</td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onclick="changeFormat()">-</td>
+            </tr>
+            <tr class = "light">
+                <td>Zoe Bloggs</td>
+                <td>23000010</td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onfocusout="update(), check(this)"><div contenteditable>-</div></td>
+                <td class="text-right" onclick="changeFormat()" >-</td>
+            </tr>
+        </table>
+        <br>
+        <div class="buttonContainer">
+            <button onclick="addRow(),update()">add row</button>
+            <button onclick="addCol(),update()">add col</button>
+            <button onclick="backUp(document.getElementById('myTable'))">backup</button>
+            <!--pass in the old table to delete it and make a new one-->
+            <button onclick="restore(document.getElementById('myTable'))">restore</button>
+        </div>
+        <br>
+        <!--count due assignments-->
+        <p id="due"></p>
+    </body>
+</html>
